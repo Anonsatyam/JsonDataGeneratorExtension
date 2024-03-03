@@ -28,9 +28,10 @@ Currently, there are no known issues. Please report any you encounter!
 
 Initial release of the Random JSON Generator extension.
 
-### 0.0.2
+### 0.0.5
 
 - Minor coding changes.
 - Improved stability and performance.
+- Updated Readme and logo
 
 **Enjoy!**

@@ -8,6 +8,7 @@
     "url": "https://github.com/Anonsatyam/JsonDataGeneratorExtension"
   },
   "publisher": "SatyamSingh",
+  "icon": "json.png",
   "engines": {
     "vscode": "^1.87.0"
   },
