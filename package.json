@@ -2,7 +2,7 @@
   "name": "randomjson",
   "displayName": "Random JSON Data Generator",
   "description": "A Visual Studio Code extension for generating random JSON data.",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/Anonsatyam/JsonDataGeneratorExtension"
@@ -16,13 +16,7 @@
     "Other"
   ],
   "activationEvents": [
-  "onLanguage:json",
-  "onLanguage:markdown",
-  "onLanguage:typescript",
-  "onLanguage:javascript",
-  "onLanguage:html",
-  "onFileSystem:sftp",
-  "onCommand:randomjson"
+  "onCommand:randomjson.jsonGenerator"
   ],
   "main": "./extension.js",
   "contributes": {
