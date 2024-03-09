@@ -1,8 +1,8 @@
 {
-  "name": "randomjsongenerator",
-  "displayName": "Random JSON Generator",
-  "description": "",
-  "version": "0.0.7",
+  "name": "randomjson",
+  "displayName": "Random JSON Data Generator",
+  "description": "A Visual Studio Code extension for generating random JSON data.",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/Anonsatyam/JsonDataGeneratorExtension"
@@ -15,26 +15,40 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+  "onLanguage:json",
+  "onLanguage:markdown",
+  "onLanguage:typescript",
+  "onLanguage:javascript",
+  "onLanguage:html",
+  "onFileSystem:sftp",
+  "onCommand:randomjson"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "randomjsongenerator.jsonDataGenarator",
-      "title": "Json Data Generator"
-    }]
+    "commands": [
+      {
+        "command": "randomjson.jsonGenerator",
+        "title": "Json Data Generator"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build": "mkdir -p out && cp -R * out && cp -R .* out || :"
   },
   "devDependencies": {
-    "@types/vscode": "^1.87.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
+    "@types/vscode": "^1.87.0",
     "@vscode/test-cli": "^0.0.6",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.7"
   }
 }

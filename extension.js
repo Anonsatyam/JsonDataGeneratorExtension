@@ -1,6 +1,7 @@
 const vscode = require("vscode");
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -13,22 +14,27 @@ async function activate(context) {
     const jsonData = JSON.stringify(response.data, undefined, 4);
 
     // Save JSON data to a temporary file
-    const tempFilePath = context.extensionPath + '/temp.json';
+    const tempFilePath = path.join(context.extensionPath, 'temp.json');
     fs.writeFileSync(tempFilePath, jsonData);
 
     // Open the temporary file
     vscode.workspace.openTextDocument(tempFilePath).then(doc => {
-      vscode.window.showTextDocument(doc);
+      vscode.window.showTextDocument(doc).then(() => {
+        // Clean up temporary file after document is shown
+        fs.unlinkSync(tempFilePath);
+      }, error => {
+        vscode.window.showErrorMessage('Failed to open temporary file: ' + error.message);
+      });
     });
   } catch (error) {
-    console.error(error);
-    vscode.window.showErrorMessage('Failed to fetch and display JSON data.');
+    vscode.window.showErrorMessage('Failed to fetch and display JSON data: ' + error.message);
   }
 
   console.log('Congratulations, your extension "randomjsongenerator" is now active!');
+  console.log("Hi");
 
   let disposable = vscode.commands.registerCommand(
-    "randomjsongenerator.jsonDataGenarator",
+    "randomjson.jsonGenerator",
     function () {
       vscode.window.showInformationMessage("Hello World from randomjsongenerator!");
     }
