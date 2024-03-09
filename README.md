@@ -8,7 +8,7 @@ This extension generates random JSON data in a temporary file for usage. Here's 
 2. Press `Ctrl + Shift + P` to open the command palette.
 3. Search for "Json Data Generator" and select it.
 
-
+![Demo](images/demo.gif)
 
 ## Requirements
 
